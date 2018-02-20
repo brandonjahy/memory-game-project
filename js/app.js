@@ -11,8 +11,8 @@
  */
 
 // Shuffle function from http://stackoverflow.com/a/2450976
-function shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
+function shuffle(cards) {
+    var currentIndex = cards.length, temporaryValue, randomIndex;
 
     while (currentIndex !== 0) {
         randomIndex = Math.floor(Math.random() * currentIndex);
@@ -37,8 +37,19 @@ function shuffle(array) {
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
 
-const array = ['fa-diamond', 'fa-diamond', 'fa-paper-plane-o', 'fa-paper-plane-o', 'fa-anchor', 'fa-anchor', 'fa-bolt', 'fa-bolt', 'fa-cube', 'fa-cube', 'fa-leaf', 'fa-leaf', 'fa-bicycle', 'fa-bicycle', 'fa-bomb', 'fa-bomb'];
 
-const flip = doucment.getElementByClassName("show");
+// an array that holds all the cards LOL
+let card = document.getElementsByClassName("card");
+let cards = [...card]
+console.log(cards);
 
-function
+var showCard = function (){
+   this.classList.toggle("open");
+   this.classList.toggle("show");
+   this.classList.toggle("disabled");
+};
+
+for (var i = 0; i < cards.length; i++){
+  card = cards[i];
+   card.addEventListener("click", showCard);
+};
