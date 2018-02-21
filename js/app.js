@@ -4,6 +4,9 @@ let card = document.getElementsByClassName("card");
 let cards = [...card]
 console.log(cards);
 
+const deck = document.getElementById("card-deck");
+
+
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -18,6 +21,20 @@ function shuffle(array) {
     }
 
     return array;
+}
+
+document.body.onload = startGame();
+
+// function that makes cards shuffle
+function startGame(){
+  cards = shuffle(cards);
+  for (var i = 0; i < cards.length; i++){
+    deck.innerHTML = "";
+    [].forEach.call(cards, function(item){
+      deck.appendChild(item);
+    });
+    cards[i].classList.remove("show", "open", "match", "disabled");
+  }
 }
 
 
